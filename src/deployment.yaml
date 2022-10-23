@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meudeployconvertemp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cover-temp
+    template:
+      metadata:
+        labels:
+        app: cover-temp
+      spec:
+        containers:
+        - name: app
+        image: fabricioveronez/conversao-temperatura
+        ports:
+        - containerPort: 8080
+---
+Apiversion: v1
+kind: Service
+metadata:
+  name: meuconvertemp
+spec:
+  selector:
+    app: cover-temp
+  ports:
+    - port: 8080
+      protocol: TCP
+      NodePort: 30000
+  type: NodePort

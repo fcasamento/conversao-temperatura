@@ -1,0 +1,12 @@
+ApiVersion: v1
+kind: Pod
+metadata:
+  name: meupod-cover-temp
+  labels:
+    app: cover-temp
+spec:
+  containers:
+  - name: app
+  image: fabricioveronez/conversao-temperatura
+  ports:
+  - containerPort: 8080

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: meureplicasetconvertemp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cover-temp
+    template:
+      metadata:
+        labels:
+        app: cover-temp
+      spec:
+        containers:
+        - name: app
+        image: fabricioveronez/conversao-temperatura
+        ports:
+        - containerPort: 8080
